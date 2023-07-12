@@ -32,6 +32,13 @@ typedef struct _fifo_queue {
     fifo_node* tail;
 } fifo_queue;
 
+fifo_node* enqueue(fifo_queue* fifo_queue) {
+    if (fifo_queue->size == 0) {
+        // return
+    }
+    fifo_node* new_node = (fifo_node*)malloc(sizeof(fifo_node));
+    // return
+} // enqueue
 
 
 /*
