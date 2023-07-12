@@ -12,6 +12,7 @@
 #include "os-sim.h"
 
 /* Function declarations */
+// NEED TO IMPLEMENT:
 extern void idle(unsigned int cpu_id);
 extern void preempt(unsigned int cpu_id);
 extern void yield(unsigned int cpu_id);

@@ -19,6 +19,20 @@ extern void yield(unsigned int cpu_id);
 extern void terminate(unsigned int cpu_id);
 extern void wake_up(pcb_t *process);
 
+typedef struct _fifo_node fifo_node;
+
+struct _fifo_node {
+    fifo_node* next;
+    pcb_t*  pcb;
+};
+
+typedef struct _fifo_queue {
+    int size;
+    fifo_node* head;
+    fifo_node* tail;
+} fifo_queue;
+
+
 
 /*
  * current[] is an array of pointers to the currently running processes.
@@ -29,8 +43,8 @@ extern void wake_up(pcb_t *process);
  * will need to use a mutex to protect it.  current_mutex has been provided
  * for your use.
  */
-static pcb_t **current;
-static pthread_mutex_t current_mutex;
+static pcb_t** current;
+static pthread_mutex_t current_mutex; // to protect current[]
 
 
 /*
